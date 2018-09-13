@@ -13,7 +13,8 @@ cors "github.com/rs/cors"
 func main() {
 	
     corsObj := cors.New(cors.Options{
-    AllowedOrigins: []string{"http://localhost:4200"},
+	AllowedOrigins: []string{"http://localhost:4200"},
+	
     
    })
 	router := c.NewRouter()

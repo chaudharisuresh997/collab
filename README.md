@@ -18,5 +18,6 @@ go build
 
 
 go run main.go
+ref https://www.thepolyglotdeveloper.com/2017/10/handling-cors-golang-web-application/
 
 
