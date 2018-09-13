@@ -35,6 +35,7 @@ func NewRouter() *mux.Router {
 	}
 
 	return router
+	
 }
 
 var routes = Routes{
@@ -64,6 +65,7 @@ func EmpCreate(w http.ResponseWriter, r *http.Request) {
 	}
 	if err := json.Unmarshal(body, &emp); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		//w.Header().Set("AllowedOrigins", "htttp://localhost:4200")
 		w.WriteHeader(422)
 		if err := json.NewEncoder(w).Encode(err); err != nil {
 			panic(err)
@@ -71,7 +73,7 @@ func EmpCreate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	SaveEmpToDb(&emp)
-
+	json.NewEncoder(w).Encode(Emp{Name: "empList"})
 }
 
 //get all the records
@@ -124,3 +126,11 @@ func SaveEmpToDb(emp *Emp) {
 		fmt.Println("yes")
 	}
 }
+/*type CORSMiddleware struct {
+    http.Handler
+}
+func (cm CORSMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    cm.Handler.ServeHTTP(w, r)
+}
+*/
