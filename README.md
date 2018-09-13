@@ -1,4 +1,6 @@
-# gomvcndb
+# collab
+collaboration tool in the intranet system
+ gomvcndb
 Minimal example of golang with gorilla mux and cassandra as a database
 
 standard template for any starter project
